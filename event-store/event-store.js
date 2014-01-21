@@ -6,12 +6,20 @@ if (Meteor.isClient) {
       return Events.find();
     }
   });
+
+  Template.event.helpers({
+    diff: function() {
+      return this.date - this.received;
+    }
+  });
 }
 
 if (Meteor.isServer) {
   Meteor.methods({
     logEvent: function(event) {
       console.log('logging event: ' + event);
+      event.received = new Date();
+
       Events.insert(event);
     }
   });

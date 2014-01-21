@@ -3,6 +3,7 @@
 </head>
 
 <body>
+  <h1>Event Store</h1>
   {{> events}}
 </body>
 
@@ -15,5 +16,9 @@
 </template>
 
 <template name="event">
-  <div>{{date}}: {{type}}: {{payload}}</div>
+  <li>
+    <div>Date: {{date}}</div>
+    <div>Received: {{received}}</div>
+    <div>Diff: {{diff}}</div>
+  </li>
 </template>
