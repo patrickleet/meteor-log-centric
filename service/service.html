@@ -1,0 +1,20 @@
+<head>
+  <title>service</title>
+</head>
+
+<body>
+  <h1>Things</h1>
+  {{> things}}
+</body>
+
+<template name="things">
+  <ul>
+    {{#each things}}
+      {{> thing}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="thing">
+  <li>{{time}}: {{a}}</li>
+</template>

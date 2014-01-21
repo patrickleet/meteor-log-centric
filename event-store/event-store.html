@@ -1,0 +1,19 @@
+<head>
+  <title>event-store</title>
+</head>
+
+<body>
+  {{> events}}
+</body>
+
+<template name="events">
+  <ul>
+    {{#each events}}
+      {{> event}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="event">
+  <div>{{date}}: {{type}}: {{payload}}</div>
+</template>
