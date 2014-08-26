@@ -1,0 +1,2 @@
+mongod:
+	mongod --replSet gravity

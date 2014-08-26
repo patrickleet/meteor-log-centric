@@ -1,0 +1,7 @@
+{
+  "public": {
+  },
+  "gravity": {
+    "url": "http://localhost:2998"
+  }
+}

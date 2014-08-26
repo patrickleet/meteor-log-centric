@@ -1,3 +1,9 @@
+Meteor.startup(function() {
+  EventStore = new GravityEventStoreClient({
+    url: Meteor.settings.public.gravity.url
+  });
+});
+
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
     return "Welcome to app.";
@@ -13,11 +19,11 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-  EventStore = DDP.connect('http://localhost:3000'),
+  
 
   Meteor.methods({
     doThing: function() {
-      console.log('calling do thing on ' + EventStore.toString());
+      console.log('doing thing');
       event = {
         type: 'thing',
         payload: {
@@ -26,7 +32,7 @@ if (Meteor.isServer) {
         },
         date: new Date()
       };
-      EventStore.call('logEvent', event);
+      EventStore.send(event);
     }
   });
 
